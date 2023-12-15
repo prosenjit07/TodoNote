@@ -15,13 +15,17 @@
     <div class="w-50 m-auto">
     <!-- The action attribute specifies the URL or file where the form data will be sent-->
     <!-- method="post" means the form data will be sent via the HTTP POST method. -->
+
     <form action="data.php" method="post" autocomplete="off">
         <div class="form-group">
             <label for="title">Title</label>
-            <input class="form-control" type="text" name="title" id="title" placeholder="Type Here To Add On ToDo" Required>
+            <input class="form-control" type="text" name="title" id="title" placeholder="Enter title" Required>
+        <br>
+            <label for="title">Notes</label>
+            <input class="form-control" type="text" name="note" id="note" placeholder="Enter Note" Required>
         </div><br>
         <button class="btn btn-success">Add To ToDo</button>
-    </form>
+    </form> 
     </div><br>
     <hr class="bg-dark w-50 m-auto">
     <div class="lists w-50 m-auto my-4">
@@ -29,11 +33,14 @@
         <div id="lists">
         <table class="table table-dark table-hover">
   <thead>
+
     <tr>
-      <th scope="col" name="id">S.no</th>
-      <th scope="col">ToDo List</th>
+      <th scope="col" name="id">S.No</th>
+      <th scope="col">Task Name</th>
+      <th scope="col">Notes</th>
      <th>Action</th>
     </tr>
+
   </thead>
   <tbody>
   <?php
@@ -42,12 +49,15 @@
         $result=mysqli_query($conn, $sql);
         if($result){
             while($row=mysqli_fetch_assoc($result)){
+               // This mysqli_fetch_assoc function is used to fetch a single row of data 
                 $id=$row['id'];
                 $title=$row['Title'];
+                $note=$row['note'];
                 ?>
                 <tr>
                     <td><?php echo $id ?></td>
-                    <td><?php echo $title  ?></td>
+                    <td><?php echo $title ?></td>
+                    <td><?php echo $note ?></td>
                     <td>
                     <a class="btn btn-success btn-sm" href="edit.php?id=<?php echo $id ?>" role="button">Edit</a>
                     <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $id ?>" role="button">Delete</a>

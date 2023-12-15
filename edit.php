@@ -23,19 +23,23 @@
                 if($result){   
                     $row=mysqli_fetch_assoc($result);
                     $title=$row['Title'];
+                    $note=$row['note'];
                 }
             ?>
   <div class="w-50 m-auto">
     <form action="editaction.php" method="post" autocomplete="off">
       <div class="form-group">
         <label for="title">Title</label>
-        <input class="form-control" type="text" name="title" id="title" value="<?php global $title; echo $title ?>" placeholder="Edit Here Your ToDo'S"
+        <input class="form-control" type="text" name="title" id="title" value="<?php global $title; echo $title ?>" placeholder="Edit Here"
+          Required>
+        <label for="note">Note</label>
+        <input class="form-control" type="text" name="note" id="note" value="<?php global $note; echo $note ?>" placeholder="Edit Here"
           Required>
           <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
       </div><br>
       <button class="btn btn-success">Update ToDo'S</button>
     </form>
-  </div>
+  </div> 
   <!-- Optional JavaScript; choose one of the two! -->
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

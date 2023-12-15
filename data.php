@@ -1,15 +1,16 @@
 <?php
-$title=$_POST['title'];
+$title = $_POST['title'];
+$note = $_POST['note'];
 
-// echo "Name Is".$name ."Phone Number:".$phone;
-
+// Include database connection
 include 'database.php';
-$sql="INSERT INTO todos(title)VALUES('$title')";
+
+// Prepare and bind the SQL statement
+$sql = "INSERT INTO todos (title, note) VALUES ('$title', '$note')";
 
 $result=mysqli_query($conn, $sql);
 
 if($result){
-    echo "Data Inserted Successfully";
     header("location: ./index.php");
 }
 else{
