@@ -16,24 +16,29 @@
   <?php
                 include 'database.php';
                 $id=$_GET['id'];
-                $sql="SELECT * FROM todos WHERE id=".$id;
+                $sql="SELECT * FROM customer WHERE id=".$id;
 
                 $result = mysqli_query($conn, $sql);
 
                 if($result){   
                     $row=mysqli_fetch_assoc($result);
-                    $title=$row['Title'];
-                    $note=$row['note'];
+                    $id=$row['Id'];
+                    $name=$row['Name'];
+                    $phone=$row['Number'];
+                    $address=$row['Address'];
                 }
             ?>
   <div class="w-50 m-auto">
     <form action="editaction.php" method="post" autocomplete="off">
       <div class="form-group">
-        <label for="title">Title</label>
-        <input class="form-control" type="text" name="title" id="title" value="<?php global $title; echo $title ?>" placeholder="Edit Here"
+        <label for="title">Name</label>
+        <input class="form-control" type="text" name="name" id="name" value="<?php global $name; echo $name ?>" placeholder="Edit Here"
           Required>
-        <label for="note">Note</label>
-        <input class="form-control" type="text" name="note" id="note" value="<?php global $note; echo $note ?>" placeholder="Edit Here"
+        <label for="note">Phone Number</label>
+        <input class="form-control" type="text" name="phone" id="phone" value="<?php global $phone; echo $phone ?>" placeholder="Edit Here"
+          Required>
+        <label for="note">Address</label>
+        <input class="form-control" type="text" name="address" id="address" value="<?php global $address; echo $address ?>" placeholder="Edit Here"
           Required>
           <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
       </div><br>

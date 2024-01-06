@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2023 at 08:25 PM
+-- Generation Time: Jan 06, 2024 at 10:25 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -18,19 +18,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `todos`
+-- Database: `bdbookshop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `todos`
+-- Table structure for table `customer`
 --
 
-CREATE TABLE `todos` (
-  `id` int(11) NOT NULL,
-  `Title` varchar(450) NOT NULL,
-  `note` varchar(255) NOT NULL
+CREATE TABLE `customer` (
+  `Id` int(255) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Number` varchar(255) NOT NULL,
+  `Address` varchar(9999) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -38,20 +39,20 @@ CREATE TABLE `todos` (
 --
 
 --
--- Indexes for table `todos`
+-- Indexes for table `customer`
 --
-ALTER TABLE `todos`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `todos`
+-- AUTO_INCREMENT for table `customer`
 --
-ALTER TABLE `todos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `customer`
+  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

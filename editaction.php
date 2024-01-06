@@ -1,10 +1,11 @@
 <?php
        $id=$_POST['id'];
-       $title=$_POST['title'];
-       $note=$_POST['note'];
+       $name=$_POST['name'];
+       $phone=$_POST['phone'];
+       $address=$_POST['address'];
        
     include 'database.php';
-    $sql = "UPDATE todos SET title='$title', note='$note' WHERE id=$id";
+    $sql = "UPDATE customer SET Name='$name', Number='$phone', Address='$address' WHERE id=$id";
 
     $result=mysqli_query($conn, $sql);
 
